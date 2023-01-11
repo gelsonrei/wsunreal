@@ -1,7 +1,7 @@
 import WebSocket, { WebSocketServer } from 'ws';
 import { randomUUID } from 'crypto';
 const clients = new Map(); // has to be a Map instead of {} due to non-string keys
-const wss = new WebSocketServer({ port: 8080 }); // initiate a new server that listens on port 8080
+const wss = new WebSocketServer({ port: process.env.PORT || 3000 }); // initiate a new server that listens on port 8080
 
 // set up event handlers and do other things upon a client connecting to the server
 wss.on('connection', (ws) => {
