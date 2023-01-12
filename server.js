@@ -13,7 +13,8 @@ wss.on('connection', (ws) => {
     // send a message to all connected clients upon receiving a message from one of the connected clients
     ws.on('message', (data) => {
         console.log(`received: ${data}`);
-        serverBroadcast(`Client ${clients.get(ws)} ${data}`);
+        //serverBroadcast(`Client ${clients.get(ws)} ${data}`);
+        serverBroadcast(data);
     });
 
     // stop tracking the client upon that client closing the connection
