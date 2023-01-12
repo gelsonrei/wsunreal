@@ -8,15 +8,15 @@
   <body>
 
     <!-- File input and image output -->
-    <input type="file" id="input">
+   
     <input type="text" id="input2">
     <input type="button" id="button1" value="message">
-    <img src="" id="output">
+   
 
     <!-- Client Code -->
     <script type="text/javascript">
 
-        import WebSocket, { WebSocketServer } from 'ws';
+        /*import WebSocket, { WebSocketServer } from 'ws';
         const ws = new WebSocket("ws://wsunreal.herokuapp.com/");
         
         
@@ -26,23 +26,14 @@
         
         ws.onmessage = (event) => {
             console.log(event.data);
-        }
+        }*/
 
-     
-
-      // Get DOM elements
-      var input = document.getElementById("input");
-      var output = document.getElementById("output");
-
-      
-
-     
+    
 
       // Listen to file input events
       document.getElementById("button1").addEventListener("click", function (event) {
-        ws.send("teste2");
+        //ws.send("teste2");
         console.log(document.getElementById("input2").value);
-        //document.getElementById("input2").value);
       });  
 
       
