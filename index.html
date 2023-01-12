@@ -1,48 +1,35 @@
-<!DOCTYPE HTML>
-
+<!DOCTYPE html>
 <html>
-   <head>
+  <head>
+    <meta charset="utf-8">
+    <title>WebSocket Client</title>
+    
+  </head>
+  <body>
+
+    <input type="text" id="input-msg">
+    <input type="button" id="bt-send" value="Send">
+  
+    <!-- Client Code -->
+    <script type="text/javascript">
+
+      const ws = new WebSocket("wss://wsunreal.herokuapp.com");
       
-      <script type = "text/javascript">
-         function WebSocketTest() {
-            
-            if ("WebSocket" in window) {
-               alert("WebSocket is supported by your Browser!");
-               
-               // Let us open a web socket
-               var ws = new WebSocket("ws://wsunreal.herokuapp.com/");
-				
-               ws.onopen = function() {
-                  
-                  // Web Socket is connected, send data using send()
-                  ws.send("Message to send");
-                  alert("Message is sent...");
-               };
-				
-               ws.onmessage = function (evt) { 
-                  var received_msg = evt.data;
-                  alert("Message is received...");
-               };
-				
-               ws.onclose = function() { 
-                  
-                  // websocket is closed.
-                  alert("Connection is closed..."); 
-               };
-            } else {
-              
-               // The browser doesn't support WebSocket
-               alert("WebSocket NOT supported by your Browser!");
-            }
-         }
-      </script>
-		
-   </head>
-   
-   <body>
-      <div id = "sse">
-         <a href = "javascript:WebSocketTest()">Run WebSocket</a>
-      </div>
+      ws.addEventListener("open", () =>{
+        console.log("We are connected");
+        ws.send("How are you?");
+      });
       
-   </body>
+      ws.addEventListener('message', function (event) {
+          console.log(event.data);
+      });
+
+      document.getElementById("bt-send").addEventListener("click", function (event) {
+        var msg = document.getElementById("input-msg").value;
+        console.log(msg);
+        ws.send(msg);
+      });  
+      
+    </script>
+  </body>
 </html>
