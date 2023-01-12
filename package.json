@@ -1,5 +1,6 @@
 {
   "type": "module",
+  "main": "server.js",
   "dependencies": {
     "ws": "^8.2.3"
   }

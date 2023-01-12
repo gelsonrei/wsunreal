@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SocketIO Client</title>
+   
+  </head>
+  <body>
+
+    <!-- File input and image output -->
+   
+    <input type="text" id="input2">
+    <input type="button" id="button1" value="message">
+   
+
+    <!-- Client Code -->
+    <script type="text/javascript">
+
+        /*import WebSocket, { WebSocketServer } from 'ws';
+        const ws = new WebSocket("ws://wsunreal.herokuapp.com/");
+        
+        
+        ws.on('open', () => {
+            ws.send("teste");
+        })
+        
+        ws.onmessage = (event) => {
+            console.log(event.data);
+        }*/
+
+    
+
+      // Listen to file input events
+      document.getElementById("button1").addEventListener("click", function (event) {
+        //ws.send("teste2");
+        console.log(document.getElementById("input2").value);
+      });  
+
+      
+    </script>
+  </body>
+</html>
